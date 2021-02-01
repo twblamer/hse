@@ -12,10 +12,17 @@ jobs:
         path: mpool
         repository: hse-project/mpool
     - uses: lukka/get-cmake@latest
-    - name: make
+    - name: make libmpool
       run: |
         sudo apt-get install autopoint gettext uuid-dev uuid-runtime
         make release config
         make release
         sudo make install
       working-directory: mpool
+    - name: make hse
+      run: |
+        sudo apt-get install autopoint gettext uuid-dev uuid-runtime
+        make release config
+        make release
+        make release test
+      working-directory: hse
