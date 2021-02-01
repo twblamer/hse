@@ -21,7 +21,7 @@ jobs:
       working-directory: mpool
     - name: make hse
       run: |
-        sudo apt-get install autopoint gettext uuid-dev uuid-runtime libmicrohttpd-dev libmicrohttpd12
+        sudo apt-get install autopoint gettext uuid-dev uuid-runtime libmicrohttpd-dev libmicrohttpd12 libucru6 liburcu-dev
         make release config
         make release
         make release test
