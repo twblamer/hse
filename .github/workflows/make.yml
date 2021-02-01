@@ -6,8 +6,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        submodules: true
+        path: hse
+    - uses: actions/checkout@v2
+      with:
+        path: mpool
+        repository: hse-project/mpool
     - uses: lukka/get-cmake@latest
     - run: |
         make release config
         make release
+        sudo make install
+      working-directory: mpool
