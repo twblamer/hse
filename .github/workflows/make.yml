@@ -15,14 +15,14 @@ jobs:
     - name: make libmpool
       run: |
         sudo apt-get install autopoint gettext uuid-dev uuid-runtime
-        make release config
-        make release
+        make debug config
+        make debug -j
         sudo make install
       working-directory: mpool
     - name: make hse
       run: |
         sudo apt-get install autopoint gettext uuid-dev uuid-runtime libmicrohttpd-dev libmicrohttpd12 liburcu6 liburcu-dev
-        make release config
-        make release
-        make release test
+        make debug config
+        make debug -j
+        make debug testp
       working-directory: hse
