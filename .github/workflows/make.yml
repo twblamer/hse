@@ -12,8 +12,9 @@ jobs:
         path: mpool
         repository: hse-project/mpool
     - uses: lukka/get-cmake@latest
-    - run: |
-        sudo apt-get install autopoint gettext
+    - name: make
+      run: |
+        sudo apt-get install autopoint gettext uuid-dev uuid-runtime
         make release config
         make release
         sudo make install
