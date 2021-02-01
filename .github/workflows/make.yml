@@ -13,6 +13,8 @@ jobs:
         repository: hse-project/mpool
     - uses: lukka/get-cmake@latest
     - run: |
+        sudo apt-get install gettext
+    - run: |
         make release config
         make release
         sudo make install
